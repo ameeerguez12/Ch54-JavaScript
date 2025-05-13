@@ -47,6 +47,29 @@ let valor2 = 4;
 console.log("El resultado de " + valor1 + " * " + valor2 + " = " + valor1 * valor2 + " pesos.");
 console.log(`El resultado de ${valor1} * ${valor2} = ${valor1*valor2} pesos.`);
 
+/* 
+ Crear una variable con el nombre de la persona que cumple años.
+ Crear una variable con el regalo que le darás.
+ Mostrar en consola el mensaje que incluya el nombre de las persona y el regalo.
+*/
+
+let cumpleañera = "Jen";
+let regalo = "una cama para gatos";
+
+console.log(`Hoy es el cumpleaños de ${cumpleañera} y le voy a regalar ${regalo}.`);
+
+
+function felicitarCumple(nombre, regalo) {
+  console.log(`Hoy es el cumpleaños de ${nombre} y le voy a regalar ${regalo}.`);
+}
+
+// Puedes llamar a la función así:
+felicitarCumple("Ana", "una bicicleta");
+felicitarCumple("Luis", "un libro");
+
+
+
+
 /*
  Tipos de datos number.
 
@@ -68,8 +91,19 @@ console.log( typeof ( 3 + "Viernes temático" ) ); // 'string'
 console.log( typeof ( "3Viernes temático" ) ); // 'string'
 console.log( 4 / 0 ); // +Infinity
 
+/* Comprueba si las siguientes variables son del tipo number*/
+const num1 = 42;
+console.log(typeof num1); // 'number'
+console.log(typeof num1 === 'number'); // true
 
+/* Comprueba si las siguientes variables son del tipo string*/
+const nameCh54 = "Luis";
+console.log(typeof nameCh54); // 'string'
+console.log(typeof nameCh54 === 'string'); // true
 /*
+
+
+
  Cuando se realizan operaciones que exceden los límites
  de MAX_SAFE_INTEGER se produce una pérdida de precisión.
 
@@ -83,6 +117,8 @@ console.log( `MAX_SAFE_INTEGER + 2: ${Number.MAX_SAFE_INTEGER + 2 }`); // 900719
 console.log( `MAX_SAFE_INTEGER + 3: ${Number.MAX_SAFE_INTEGER + 3 }`); // 9007199254740994
 console.log( `MAX_SAFE_INTEGER + 4: ${Number.MAX_SAFE_INTEGER + 4 }`); // 9007199254740995
 console.log( `MAX_SAFE_INTEGER + 5: ${Number.MAX_SAFE_INTEGER + 5 }`); // 9007199254740996
+
+
 
 /*
  Tipos de datos BigInt

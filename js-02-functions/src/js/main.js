@@ -44,6 +44,10 @@ hoisting: comportamiento en JS que permite a las declaración de variables(var)
 o funciones se eleven al comienzo de su ámbito antes de que se ejecute el código.
 
 */
+saludar("Jen");
+function saludar( nombre ) {
+  console.log("Qué te gustaría de regalod e cumpleaños " + nombre );
+}
 
 
 
@@ -63,6 +67,40 @@ sintaxis:
     };
 */
 
+const darRegalo = function ( nombre, regalo){
+  console.log( `Felicidades ${nombre}, te traje ${regalo}`);
+};
+
+darRegalo("Jen", "un libro");
+
+
+/*
+ Realizar una función declarada que sume dos números 
+ y retorne el resultado.
+ 
+ Realizar una función expresada que reste dos números 
+ y retorne el resultado.
+ 
+*/
+
+
+// Función declarada
+function sumar(a, b) {
+  return a + b;
+}
+// Ejemplo
+const resultadoSuma = sumar(5, 3);
+console.log("Resultado de la suma:", resultadoSuma);
+
+
+
+// Función expresada
+const restar = function(a, b) {
+  return a - b;
+};
+// Ejemplo
+const resultadoResta = restar(10, 4);
+console.log("Resultado de la resta:", resultadoResta);
 
 
 
