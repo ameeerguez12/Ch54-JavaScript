@@ -115,7 +115,10 @@ sintaxis:
 
 */
 
-
+(function setUp (){
+  console.log("Configurando inicial de la aplicación");
+})(); 
+setUp();
 
 
 
@@ -135,6 +138,47 @@ sintaxis:
         return expresión;
     }
 */
+
+// Realizar una función declarada que calcule al área de un triángulo
+// al función debe retornar el resultado.
+
+function calcularAreaTriangulo(base, altura) {
+  const area = (base * altura) / 2; 
+  return area; 
+}
+const base = 10;
+const altura = 5;
+const area = calcularAreaTriangulo(base, altura);
+
+console.log("El área del triángulo es:", area);
+
+
+// Realizar una función expresada que calcule al área de un triángulo
+const calcularAreaTriangulo = function(base, altura) {
+  const area = (base * altura) / 2;
+  return area;
+};
+const base = 8;
+const altura = 6;
+const area = calcularAreaTriangulo(base, altura);
+
+console.log("El área del triángulo es:", area);
+
+
+// Realizar una función flecha que calcule el área de un triángulo
+const calculaArea3 = ( base, altura) => base * altura / 2;
+console.log(`Resultado usando arrow function: ${calculaArea3(12,20)}`)
+
+// ¿Qué sucede si uso console.log como retorno?
+const imprimirArea = (base, altura) => console.log(calculaArea3(base, altura));
+imprimirArea(12, 20);
+
+
+
+
+
+//ACTIVIDAD
+// Función flecha para calcular el área del círculo
 
 
 
@@ -161,6 +205,21 @@ Inicializa un parámetro de la función, si no se envía el argumento cuando se 
  */
 
 
-
+const imprimirMensaje = ( fncCallBack ) => fncCallBack("Hola Ch54");
+                                            // 18("Hola Ch54");
+                                            // "patito"("Hola Ch54");
+                                            // console.log("Hola Ch54");
+                                            // undefined("Hola Ch54");
+ // imprimirMensaje( 18 ); // fncCallBack is not a function
+ // imprimirMensaje( "Patito" ); // fncCallBack is not a function
+ imprimirMensaje( console.log ); // "Hola Ch54"
+ // imprimirMensaje( console.log("Luis") ); //  fncCallBack is not a function
+ // imprimirMensaje( undefined ); //  fncCallBack is not a function
 
   
+const enviaAParrafo = ( mensaje ) => {
+  const saluda ="Hola, buen dia";
+   const referencia =  document.getElementById("saludo-callback");
+   referencia.innerHTML = `${saluda} ${mensaje}`;   
+}
+imprimirMensaje( alert );
