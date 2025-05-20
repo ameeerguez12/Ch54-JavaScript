@@ -107,9 +107,25 @@ console.log(  0 == false ); //
 
 //--- Si los operandos tienen el mismo tipo, se comparan de la siguiente manera:-----
 // String: devuelve verdadero solo si ambos operandos tienen los mismos caracteres y en el mismo orden.
-console.log( "hola" == "hola" ); // 
-console.log( "hola" == "Hola" ); // 
-console.log( 'Hola "Ch5x" ' == 'Hola "Ch5x" ' ); 
+console.log( "hola" == "hola" ); // True
+console.log( "hola" == "Hola" ); // False
+console.log( 'Hola "Ch5x" ' == 'Hola "Ch5x" ' ); //True
+console.log( 'Hola "Ch5x" ' == "Hola \"Ch5x\" " ); //true
+console.log( 'Hola "Ch5x" ' == "Hola `Ch5x` " ); //false
+
+/*
+  Uso del caracter de escape:
+  \n  nueva línea
+  \t  tabulación
+  \\  barra invertida
+  \'  comilla simple
+  \"  comilla doble
+  \`   comilla invertida
+  \b  retroceso
+  \uXXXX  unicode   \u00A9 = ©
+*/
+
+
 
 
 // Se recomienda usar el método localCompare(): compara cadenas de texto de acuerdo con las reglas de un idioma específico
@@ -303,4 +319,11 @@ console.log( "Hola " + usuario ); // Invitado
   En caso contrario imprimir "Acceso concedido".
 */
 let autorizado = true;
+let mensaje1 = autorizado && "Acceso concedido" || "Acceso Denegado";
+console.log(mensaje1);
+
+
+
+
+// Resultado: Acceso concedido
 

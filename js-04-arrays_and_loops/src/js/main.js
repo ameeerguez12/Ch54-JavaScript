@@ -54,6 +54,32 @@ for ( const color of colores ) {
 const cantantes = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
 const refListaCantantes = document.getElementById("cantantes-lista");
 
+const unorderListCantantes = arregloCantantes => { 
+    let concatenacion =" ";
+        for (const cantante of arregloCantantes) {
+            concatenacion += "<li>" + cantante + "</li>";
+}
+return concatenacion;
+}
+const imprimirDocumento = (arregloFinal) => document.getElementById("cantantes-lista").innerHTML = unorderListCantantes(arregloFinal);
+imprimirDocumento(cantantes);
+
+
+
+
+// Imprimir en consola cada uno de los cantantes, usandor for of
+const imprimirCantantes2 = ( listaCantantes ) => {
+    let cantantesConcatenados = "";
+    for (const cantante of listaCantantes) {
+        // cantantesConcatenados = cantantesConcatenados + cantante + " - ";
+        cantantesConcatenados +=  cantante + " - ";
+    }
+    return cantantesConcatenados;
+}
+console.log(imprimirCantantes2(cantantes));
+
+
+
 
 
 // ------------------- Uso de break en ciclos ----------------------------
@@ -119,4 +145,118 @@ for (let i = 0 ; i <= 5; i++ ){
 
 */
 
+/*
+ Pregunta al usuario si quire que se genere su númer de la suerte.
+ Si la respuesta es "si", genera de forma aleatoria un número.
+ En cas contrario, despedirse.
+*/ 
+/* 
+ Uso de Math.random();
+ Generar 5 números aleatorios.
+ Los números deben estar entre el 0.0 y 10.0(sin incluir 10.0)
+*/
+
+
+const generarNumerosAleatorios2 = (cantidad, minNum = 0, maxNum = 10) => {
+   
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio = Math.random(); 
+        const escalarNumero = numeroAleatorio * ( (maxNum - minNum ) + 1); 
+        const numerosEntero = Math.floor(escalarNumero + minNum); 
+         console.log(`Número aleatorio entre ${minNum} y ${maxNum} :  ${numerosEntero}`); 
+    }
+   
+};
+generarNumerosAleatorios2(5);
+generarNumerosAleatorios2(10, 50 , 60);
+
+
+
+
+/*
+  Melate Chocolate
+  1.- Al pulsar el botón "Generar mis números de la suerte".
+  2.- Generar 6 números aleatorios entre el 1 y el 54.
+  3.- Mostrar el resultado en el DOM.
+*/
+
+/**
+ * Generar un número aleatorio entre un rango de números
+ * @param {number} minNum 
+ * @param {number} maxNum 
+ */
+const generarNumeroAleatorio = (minNum, maxNum) => {
+    const numeroAleatorio = Math.random();
+    const escalarNumero = numeroAleatorio * ((maxNum - minNum) + 1);
+    const numeroEntero = Math.floor(escalarNumero + minNum);
+    return numeroEntero;
+};
+
+// Verifica si un número ya está en el arreglo
+const elNumeroExisteEnArreglo = (arreglo, numero) => {
+    return arreglo.includes(numero)
+}
+
+// Imprime los números generados en el DOM
+const imprimirMelateChocolate = (numeros) => {
+    const referencia = document.getElementById("melate-chocolate");
+    referencia.innerHTML = `${numeros.join(' - ')}`;
+};
+
+// Genera 6 números únicos entre 1 y 54
+const generarNumerosDeLaSuerte = (size = 6, minNum = 1, maxNum = 54) => {
+    const numeros = [];
+    while (numeros.length < size) {
+        const numAleatorio = generarNumeroAleatorio(minNum, maxNum);
+        if (!elNumeroExisteEnArreglo(numeros, numAleatorio)) {
+            numeros.push(numAleatorio);
+        }
+    }
+    imprimirMelateChocolate(numeros);
+};
+
+// Escuchar el botón
+document.getElementById("boton-generar").addEventListener("click", () => {
+    generarNumerosDeLaSuerte();
+});
+
+
+// ============ Ordenar un arreglo de números ==============
+
+
+const numerosIniciales = [ 5, 33, 8, 100, 4, 2, 7, 6 ];
+
+    //[ 5, 33, 8, 100, 4, 2, 7, 6 ] iteración 0
+                       //[ 5, 8, 33, 100, 4, 2, 7, 6 ] iteración 1
+                       //[ 5, 8, 33, 100, 4, 2, 7, 6 ] iteración 2
+                       //[ 5, 8, 33, 4, 100, 2, 7, 6 ] iteración 3
+                       //[ 5, 8, 33, 4, 2, 100, 7, 6 ] iteración 4
+                       //[ 5, 8, 33, 4, 2, 7, 100, 6 ] iteración 5
+                       //[ 5, 8, 33, 4, 2, 7, 6, 100 ] iteración 6
+
+
+
+const comparaNumeros = ( a, b ) => {
+    if ( a < b ) return -1;
+    if ( a > b ) return 1;
+    return 0;
+}
+const comparaNumerosOrdenDescendente = ( a, b ) => {
+    if ( a < b ) return 1;
+    if ( a > b ) return -1;
+    return 0;
+}
+
+
+
+
+
+const ordenarNumeros = ( numerosDesordenados, fncCallBack )=>{
+    const numerosOrdenados = numerosDesordenados;
+    numerosOrdenados.sort( fncCallBack );
+    return numerosOrdenados;
+}
+console.log( numerosIniciales );
+console.log( ordenarNumeros(numerosIniciales, comparaNumeros) );
+console.log( ordenarNumeros(numerosIniciales, comparaNumerosOrdenDescendente) );
 
