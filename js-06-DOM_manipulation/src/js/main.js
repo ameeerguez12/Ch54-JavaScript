@@ -39,6 +39,33 @@ const changeElementById = () =>{
     descripcionOperadores.innerHTML = '<span class="text-warning">document</span>: representa cualquier página web carga en el navegador.';
 }
 
+const cambiaElemntos = ( name ) => {
+    const descripcionOperadores = document.getElementById("tarjeta");
+    console.log(descripcionOperadores);
+    descripcionOperadores.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+        <img src = "./public/images/dino.jpg" class="card-img-top" alt="Dinosaurio rex escribiendo código" >
+            <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+</div > `;
+}
+cambiaElemntos("America Rodriguez");
+
+
+
+
+function contarBotones() {
+  const botones = document.querySelectorAll('button');
+  console.log('Total de botones en la página:', botones.length);
+}
+contarBotones();
+
+
+
+
 changeElementById();
 
 /**
