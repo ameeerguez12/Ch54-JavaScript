@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JavaScript Course</title>
@@ -12,10 +13,12 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- Main custom style -->
   <link rel="stylesheet" href="./src/css/style.css" />
+
+
 </head>
 
 <body class="bg-dark text-light">
-
+ 
   <header id="header"></header>
 
   <main class="container text-center mt-5">
@@ -23,12 +26,19 @@
       <!-- logo -->
       <figure class="col-lg-5 col-9">
         <img class="img-fluid rounded" src="./public/images/dino.jpg" alt="Dinosaurio rex escribiendo código" />
+         <div class="mt-3">
+          <input  type="text" class="form-control mb-2" id="nombreInput" placeholder="Escribe nombre"/>
+          <button class="btn btn-warning" id="btnGuardar">Guardar</button>
+        </div>
       </figure>
+
       <!-- principal title -->
       <div class="col-lg-3 col-12 text-warning">
         <h1>JS 07</h1>
+        <h2 id="bienvenida"></h2>
       </div>
-      <!-- sesion description -->
+
+          <!-- sesion description -->
       <div class="col-lg-4 col-12">
         <h2>API FETCH</h2>
         <p class="text-start">

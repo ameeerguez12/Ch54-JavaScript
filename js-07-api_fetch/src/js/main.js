@@ -79,6 +79,15 @@ Características clave de los módulos JS:
 
 // importa las funciones del footer y header e invócalos para que se ejecuten
 
+import { insertMainHeader } from "../modules/header/header.js";
+insertMainHeader( document.getElementById("header") );
+
+
+
+import { insertMainFooter } from "../modules/footer/footer.js";
+insertMainFooter( document.getElementById("footer") );
+
+
 
 
 /*
@@ -99,6 +108,36 @@ Características clave de los módulos JS:
     localStorage.clear() → Borra todo el almacenamiento.
 
 */
+const leerNombreDelLocalStorage = () => {
+  const nombre = localStorage.getItem("nombre") || "persona invitada";
+  return nombre;
+}
+const insertarNombreEnElDOM = () => {
+  const refH1 = document.querySelector("#bienvenida");
+  const nombre = leerNombreDelLocalStorage();
+  // refH1.innerHTML = `Hola, ${nombre}`;
+  refH1.textContent = `Hola, ${nombre}`;
+}
+insertarNombreEnElDOM();
+
+const manejoDelBotonGuardar = () => {
+  const refInput = document.getElementById("nombreInput"); // corregido
+  const newName = refInput.value;
+
+  if (newName) {
+    localStorage.setItem("nombre", newName);
+    insertarNombreEnElDOM(); // se actualiza el saludo
+  }
+};
+
+/**
+ *  ¿Qué es addEventListener?
+ *  Es un método que permite escuchar eventos (como click, keydown, submit, etc.) en un elemento 
+ *  del DOM, y ejecutar una función cuando ese evento ocurre.
+ * 
+ * */
+const refSaveButton = document.getElementById("btnGuardar");
+refSaveButton.addEventListener( "click", manejoDelBotonGuardar  );
 
 
 
@@ -152,7 +191,12 @@ tercerPaso();
      setTimeout( ()=>{}  , tiempo_ms );
 
 */
+const saludar = (nombre,CH54)=> alert(`Hola ${nombre}`);
+const saludarTranscurridoXSeg = ( milisegundos ) =>{
+setTimeout( saludar,milisegundos, "Neo", "Cris,Tú"); 
+}
 
-
+//saludarTranscurridoXSeg( 5000 );
+//console.log(" Antes de saludar");
 
 
